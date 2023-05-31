@@ -22,14 +22,9 @@ source:
   version: v23/63.1
   commit: 3a246c097b3fa65572d4f49d1530284577f12541
   patch:
-  - icudata-stdlibs.patch
-  - ICU-21984.patch
-  - ICU-21994.patch
-  - ICU-22005.patch
+    - icudata-stdlibs.patch
+    - ICU-21984.patch
+    - ICU-21994.patch
+    - ICU-22005.patch
 build:
   kind: autotools
-  manual:
-    configure: |
-      cd source
-      autoreconf -ivf
-      ./configure ${conf_args} ${extra_args}
