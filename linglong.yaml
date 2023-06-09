@@ -28,3 +28,9 @@ source:
     - ICU-22005.patch
 build:
   kind: autotools
+  manual:
+    configure: |
+      cd source
+      update-alternatives --auto automake
+      autoreconf -ivf
+      ./configure ${conf_args} ${extra_args}
