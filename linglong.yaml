@@ -10,12 +10,6 @@ base:
   id: org.deepin.base
   version: 23.0.0
 
-variables:
-  extra_args: |
-    --enable-static \
-    --disable-layoutex \
-    --disable-icu-config
-
 source:
   kind: git
   url: https://github.com/deepin-community/icu.git
@@ -26,11 +20,10 @@ source:
     - ICU-21984.patch
     - ICU-21994.patch
     - ICU-22005.patch
+
 build:
   kind: autotools
   manual:
     configure: |
       cd source
-      update-alternatives --auto automake
-      autoreconf -ivf
-      ./configure ${conf_args} ${extra_args}
+      ./configure --enable-static --disable-layoutex --disable-icu-config
